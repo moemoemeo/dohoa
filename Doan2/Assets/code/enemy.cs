@@ -35,24 +35,9 @@ public class enemy : MonoBehaviour
             return;
         }
         timer -= Time.deltaTime;
-        //di toi vi tri nguoi choi
-       /* if (!scp.hasPath)
-        {
-            scp.destination = Player.position;
-        }
-        if (timer < 0.0f)
-        {
-            Vector3 direction = (Player.position - scp.destination);
-            direction.y = 0;
-            if (direction.sqrMagnitude > maxDistance * maxDistance)
-            {
-                if (scp.pathStatus != NavMeshPathStatus.PathPartial)
-                {
-                    scp.destination = Player.position;
-                }
-            }
-            timer = maxTime;
-        }*/
+        
+       
+      
         // di loanh quanh trong pham vi
         if (!scp.hasPath)
         {
@@ -62,6 +47,30 @@ public class enemy : MonoBehaviour
             scp.destination = random_pos;
         }
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "player")
+        {
+            if (!scp.hasPath)
+            {
+                scp.destination = Player.position;
+            }
+            if (timer < 0.0f)
+            {
+                Vector3 direction = (Player.position - scp.destination);
+                direction.y = 0;
+                if (direction.sqrMagnitude > maxDistance * maxDistance)
+                {
+                    if (scp.pathStatus != NavMeshPathStatus.PathPartial)
+                    {
+                        scp.destination = Player.position;
+                    }
+                }
+                timer = maxTime;
+            }
+        }
+    }
+
     public void TakeDam(float khoang)
     {
         health -= khoang;
@@ -99,5 +108,6 @@ public class enemy : MonoBehaviour
         }
 
     }
+
     
 }
