@@ -11,10 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/begin.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/map2.unity
     guid: 6fc88b29bdc331c4bb2b7b04695f84b8
+  - enabled: 1
+    path: Assets/Scenes/wwin.unity
+    guid: b1e22b18ec3f58f4b9ed1c8035388058
+  - enabled: 1
+    path: Assets/Scenes/end.unity
+    guid: bae361ce0bea73549a42a03c750bfbc5
   m_configObjects: {}

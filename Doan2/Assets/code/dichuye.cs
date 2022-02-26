@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class dichuye : MonoBehaviour
 {
     public CharacterController controller;
 
+    public int count=0;
     public float tocdo = 12f;
     public float trongluc = -9.8f;
     public float lucnhay = 3f;
@@ -16,8 +18,16 @@ public class dichuye : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    void Start()
+    {
+       
+    }
     void Update()
     {
+        if (count == 3)
+        {
+            SceneManager.LoadScene("win");
+        }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -35,17 +45,8 @@ public class dichuye : MonoBehaviour
                 tocdo = 12f;
             }
         }
-        if(isGrounded)
-        {
-            if (Input.GetKeyDown("c"))
-            {
-                transform.localScale = new Vector3(6,3,6);
-            }
-            else if (Input.GetKeyUp("c"))
-            {
-                transform.localScale = new Vector3(6, 6, 6);
-            }
-        }
+        
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -61,5 +62,6 @@ public class dichuye : MonoBehaviour
         velocity.y += trongluc * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
     }
 }
