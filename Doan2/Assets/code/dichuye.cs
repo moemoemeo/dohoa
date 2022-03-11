@@ -26,7 +26,8 @@ public class dichuye : MonoBehaviour
     {
         if (count == 3)
         {
-            SceneManager.LoadScene("win");
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("wwin");
         }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 

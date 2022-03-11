@@ -11,7 +11,7 @@ public class gun : MonoBehaviour
     public GameObject effet_hit;
     public int max_ammo = 10;
     private int curent_ammo;
-    public float reloadtimes= 20f;
+    public float reloadtimes= 2f;
     private bool isreload;
     
 
